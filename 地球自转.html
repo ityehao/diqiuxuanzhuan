@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       body,div{
+            margin:0;
+            padding: 0;
+        }
+       
+       body{
+           background-color: #333;
+       }
+        #ball{
+            width: 500px;
+            height: 500px;
+            /*background-color: #600;*/
+            margin: 100px auto;
+
+        }
+        .cube{
+            width: 500px;
+            height: 500px;
+            transform-style: preserve-3d;
+            /*position: relative;*/
+            transform: rotateZ(-20deg) rotateX(-20deg) rotateY(0deg);
+            animation: spin 10s linear infinite;
+        }
+        @keyframes spin{
+            0%{transform: rotateZ(-20deg) rotateX(-20deg) rotateY(0deg);}
+            100%{transform: rotateZ(-20deg) rotateX(-20deg) rotateY(360deg);}
+       }
+
+        .cube div{
+            width: 500px;
+            height: 500px;
+            border: 10px solid blue;
+            border-radius: 50%;
+            position: absolute;
+        }
+       .cube .x1{
+            transform: rotateY(0deg);
+        }
+       .cube .x2{
+           transform: rotateY(20deg);
+       }
+       .cube .x3{
+           transform: rotateY(40deg);
+       }
+       .cube .x4{
+           transform: rotateY(60deg);
+       }
+       .cube .x5{
+           transform: rotateY(80deg);
+       }
+       .cube .x6{
+           transform: rotateY(100deg);
+       }
+       .cube .x7{
+           transform: rotateY(120deg);
+       }
+       .cube .x8{
+           transform: rotateY(140deg);
+       }
+       .cube .x9{
+           transform: rotateY(160deg);
+       }
+       .cube .y1{
+           transform: rotateX(90deg) translateZ(200px) scale(0.6);
+       }
+       .cube .y2{
+           transform: rotateX(90deg) translateZ(150px) scale(0.8);
+       }
+       .cube .y3{
+           transform: rotateX(90deg) translateZ(100px) scale(0.92);
+       }
+       .cube .y4{
+           transform: rotateX(90deg) translateZ(50px) scale(0.98);
+       }
+       .cube .y5{
+           transform: rotateX(90deg) translateZ(0px) scale(1);
+       }
+       .cube .y6{
+           transform: rotateX(90deg) translateZ(-50px) scale(0.98);
+       }
+       .cube .y7{
+           transform: rotateX(90deg) translateZ(-100px) scale(0.92);
+       }
+       .cube .y8{
+           transform: rotateX(90deg) translateZ(-150px) scale(0.8);
+       }
+       .cube .y9{
+           transform: rotateX(90deg) translateZ(-200px) scale(0.6);
+       }
+
+    </style>
+</head>
+<body>
+<div id="ball">
+    <div class="cube">
+        <div class="x1"></div>
+        <div class="x2"></div>
+        <div class="x3"></div>
+        <div class="x4"></div>
+        <div class="x5"></div>
+        <div class="x6"></div>
+        <div class="x7"></div>
+        <div class="x8"></div>
+        <div class="x9"></div>
+        <div class="y1"></div>
+        <div class="y2"></div>
+        <div class="y3"></div>
+        <div class="y4"></div>
+        <div class="y5"></div>
+        <div class="y6"></div>
+        <div class="y7"></div>
+        <div class="y8"></div>
+        <div class="y9"></div>
+    </div>
+</div>
+
+<script>
+
+    var oDiv=document.getElementsByClassName("cube")[0];
+    var oDivs=oDiv.getElementsByTagName("div");
+
+    function auto(){
+        for (var i = 0; i <oDivs.length ; i++) {
+
+            oDivs[i].style.borderColor=color1();
+        }
+    }
+    setInterval(auto,1000)
+function color1(){
+    var colors=[0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"];
+    var color=""
+    for (var i = 0; i <6 ; i++) {
+     var n=Math.floor(Math.random()*16);
+     color+=colors[n];
+        if(i==5){
+            return "#"+color
+        }
+    }
+}
+    console.log(color1());
+</script>
+</body>
+</html>
